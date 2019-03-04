@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
+import { CONTACT_DATA } from 'src/app/data/contact-data';
 
 @Component({
   selector: 'trm-contacts-app',
@@ -23,4 +24,5 @@ export class ContactsAppComponent {
       country: 'United States'
     }
   };
+  contacts = CONTACT_DATA;
 }
