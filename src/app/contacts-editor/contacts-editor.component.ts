@@ -31,6 +31,9 @@ export class ContactsEditorComponent implements OnInit {
   }
 
   private gotoDetail() {
-    this.router.navigate(['contact', this.contact.id]);
+    // this.router.navigate(['contact', this.contact.id]);
+    this.router.navigate(['../'], {
+      relativeTo: this.activatedRoute
+    });
   }
 }
