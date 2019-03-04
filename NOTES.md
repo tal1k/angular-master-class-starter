@@ -18,6 +18,7 @@ Additional links:
 - `$0 / console.dir` in Developer console
 - Testsetup: jest (Unit) / cypress (e2e)
   - [Marble Testing](https://github.com/ReactiveX/rxjs/blob/master/doc/marble-testing.md) for Rx tests
+- Reactive Forms anstelle Template Forms (Kein Two-way Data Binding)
 
 ## Intro
 - Zone.js für Change Detection (Push based, timeout / xhr requests werden überschrieben)

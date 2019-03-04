@@ -33,4 +33,10 @@ export class ContactsService {
       .pipe(map(data => data.item))
       .pipe(delay(1000));
   }
+
+  updateContact(contact: Contact) {
+    const url = `${this.API_ENDPOINT}/contacts/${contact.id}`;
+    return this.http.put(url, contact)
+      .pipe(delay(1000));
+  }
 }
