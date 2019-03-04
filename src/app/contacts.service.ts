@@ -1,10 +1,11 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, delay } from 'rxjs/operators';
 
 import { Contact } from './models/contact';
 
-import { Observable } from 'rxjs';
+import { API_ENDPOINT } from './app.tokens';
 
 interface ContactResponse {
   item: Contact;
@@ -16,18 +17,20 @@ interface ContactsResponse {
 
 @Injectable()
 export class ContactsService {
-  constructor(private http: HttpClient, @Inject('API_ENDPOINT') private API_ENDPOINT: string) {
+  constructor(private http: HttpClient, @Inject(API_ENDPOINT) private API_ENDPOINT: string) {
   }
 
   getContacts(): Observable<Contact[]> {
-    const url = `${this.API_ENDPOINT}/api/contacts`;
+    const url = `${this.API_ENDPOINT}/contacts`;
     return this.http.get<ContactsResponse>(url)
-      .pipe(map(data => data.items));
+      .pipe(map(data => data.items))
+      .pipe(delay(500));
   }
 
   getContact(id: number): Observable<Contact> {
-    const url = `${this.API_ENDPOINT}/api/contacts/${id}`;
+    const url = `${this.API_ENDPOINT}/contacts/${id}`;
     return this.http.get<ContactResponse>(url)
-      .pipe(map(data => data.item));
+      .pipe(map(data => data.item))
+      .pipe(delay(1000));
   }
 }
