@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -14,21 +14,19 @@ interface ContactsResponse {
   items: Contact[];
 }
 
-const API_ENDPOINT = 'http://localhost:4201';
-
 @Injectable()
 export class ContactsService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject('API_ENDPOINT') private API_ENDPOINT: string) {
   }
 
   getContacts(): Observable<Contact[]> {
-    const url = `${API_ENDPOINT}/api/contacts`;
+    const url = `${this.API_ENDPOINT}/api/contacts`;
     return this.http.get<ContactsResponse>(url)
       .pipe(map(data => data.items));
   }
 
   getContact(id: number): Observable<Contact> {
-    const url = `${API_ENDPOINT}/api/contacts/${id}`;
+    const url = `${this.API_ENDPOINT}/api/contacts/${id}`;
     return this.http.get<ContactResponse>(url)
       .pipe(map(data => data.item));
   }

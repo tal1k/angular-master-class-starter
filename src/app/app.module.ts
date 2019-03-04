@@ -24,7 +24,8 @@ import { ContactsDetailComponent } from './contacts-detail/contacts-detail.compo
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
-    ContactsService
+    ContactsService,
+    { provide: 'API_ENDPOINT', useValue: 'http://localhost:4201' }
   ],
   bootstrap: [ContactsAppComponent]
 })
