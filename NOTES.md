@@ -1,4 +1,8 @@
 # Notes
+- `npm serve`
+- `npm run rest-api`
+  - API: http://localhost:4201/
+
 ## Links
 Main links:
 - [Repos](https://github.com/thoughtram/angular-master-class-exercise-descriptions)
@@ -10,6 +14,7 @@ Additional links:
 
 ## TODO
 - Watch [TreeShaking](https://www.youtube.com/watch?v=jnp_ny4SOQE)
+- Read [Caching RxJS](https://blog.thoughtram.io/angular/2018/03/05/advanced-caching-with-rxjs.html)
 - `$0 / console.dir` in Developer console
 - Testsetup: jest (Unit) / cypress (e2e)
   - [Marble Testing](https://github.com/ReactiveX/rxjs/blob/master/doc/marble-testing.md) for Rx tests
