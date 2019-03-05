@@ -32,7 +32,6 @@ import { TabComponent } from './tabs/tab/tab.component';
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
-    ContactsService,
     { provide: tokens.API_ENDPOINT, useValue: 'http://localhost:4201/api' }
   ],
   bootstrap: [ContactsAppComponent]

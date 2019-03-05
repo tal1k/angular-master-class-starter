@@ -15,7 +15,9 @@ interface ContactsResponse {
   items: Contact[];
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ContactsService {
   constructor(private http: HttpClient, @Inject(API_ENDPOINT) private API_ENDPOINT: string) {
   }
