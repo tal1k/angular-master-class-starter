@@ -16,9 +16,10 @@ import { ContactsDetailComponent } from './contacts-detail/contacts-detail.compo
 
 import * as tokens from './app.tokens';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
+import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent, ContactsDetailComponent, ContactsEditorComponent, ContactsDetailViewComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

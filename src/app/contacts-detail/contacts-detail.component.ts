@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ContactsService } from '../contacts.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../models/contact';
-import { Observable } from 'rxjs'
 
 
 @Component({
@@ -11,15 +8,26 @@ import { Observable } from 'rxjs'
   styleUrls: ['./contacts-detail.component.css']
 })
 export class ContactsDetailComponent implements OnInit {
-  contact$: Observable<Contact>;
+  @Input()
+  contact: Contact;
 
-  constructor(
-    private route: ActivatedRoute,
-    private contactsService: ContactsService) {
+  @Output()
+  edit = new EventEmitter();
+
+  @Output()
+  back = new EventEmitter();
+
+  constructor() {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-    this.contact$ = this.contactsService.getContact(id);
+  }
+
+  onEdit() {
+    this.edit.emit(this.contact);
+  }
+
+  onBack() {
+    this.back.emit();
   }
 }
